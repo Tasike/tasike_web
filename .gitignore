@@ -36,3 +36,6 @@ nosetests.xml
 
 # Dependencies
 node_modules/
+
+# Compiled
+compiled/
