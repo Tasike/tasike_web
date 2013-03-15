@@ -10,6 +10,7 @@
     "jade": "*",
     "less-middleware": "*",
     "mongoose": "*",
-    "socket.io": "*"
+    "socket.io": "*",
+    "node-celery": "*"
   }
 }
