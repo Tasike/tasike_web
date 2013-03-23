@@ -38,4 +38,4 @@ nosetests.xml
 node_modules/
 
 # Compiled
-compiled/
+compiled/*
