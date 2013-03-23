@@ -1,1 +1,1 @@
-jitter . compile test
+jitter . compiled test
