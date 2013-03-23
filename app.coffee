@@ -6,7 +6,7 @@ path = require('path')
 
 app = express()
 
-app.configure ->
+app.configure(->
   app.set('port', process.env.PORT or 8888)
   app.set('views', __dirname + '/views')
   app.set('view engine', 'jade')
@@ -20,17 +20,20 @@ app.configure ->
   app.use(require('less-middleware')(src: __dirname + '/public'))
   app.use(express["static"](path.join(__dirname, 'public')))
   return
+)
 
-app.configure 'development', ->
+app.configure('development', ->
   app.use(express.errorHandler())
   return
+)
 
 app.get('/', routes.index)
 app.get('/users', user.list)
 
-http.createServer(app).listen app.get('port'), ->
+http.createServer(app).listen(app.get('port'), ->
   console.log("Tasike server listening on port " + app.get('port'))
   return
+)
 
 
 

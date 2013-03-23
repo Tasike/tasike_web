@@ -1,8 +1,8 @@
-fs = require 'fs'
-{spawn} = require 'child_process'
+fs = require('fs')
+{spawn} = require('child_process')
 
 
-task 'link', '生成public和views软连接', ->
+task('link', '生成public和views软连接', ->
   fs.exists './compiled/public', (exists) ->
     if exists
       console.log('Public is exists')
@@ -16,7 +16,9 @@ task 'link', '生成public和views软连接', ->
     else
       fs.symlinkSync('../views', './compiled/views', 'dir')
       console.log('Views link is created')
+)
 
 
-task 'compile', '编译并运行测试', ->
+task('compile', '编译并运行测试', ->
   spawn 'jitter', ['.', 'compiled', 'test']
+)
