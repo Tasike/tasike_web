@@ -1,5 +1,6 @@
 fs = require('fs')
-{spawn} = require('child_process')
+exec = require('child_process').exec
+spawn = require('child_process').spawn
 
 
 task('link', '生成public和views软连接', ->
@@ -19,6 +20,13 @@ task('link', '生成public和views软连接', ->
 )
 
 
-task('compile', '编译并运行测试', ->
-  spawn 'jitter', ['.', 'compiled', 'test']
+task('compile', '编译Coffee为JavaScript', ->
+  spawn('jitter', ['.', 'compiled'])
+)
+
+
+task('test', '进行单元测试', ->
+  exec('jasmine-node tests/', (error, stdout, stderr) ->
+    console.log(stdout)
+  )
 )
