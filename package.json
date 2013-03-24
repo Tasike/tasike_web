@@ -12,6 +12,11 @@
     "mongoose": "*",
     "socket.io": "*",
     "node-celery": "*",
-    "redis": "*"
+    "redis": "*",
+    "validator": "*"
+  },
+  "repository": {
+     "type": "git",
+     "url": "git@github.com:Tasike/tasike_web.git"
   }
 }
