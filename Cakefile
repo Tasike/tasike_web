@@ -26,7 +26,7 @@ task('compile', '编译Coffee为JavaScript', ->
 
 
 task('test', '进行单元测试', ->
-  exec('jasmine-node tests/', (error, stdout, stderr) ->
+  exec('jasmine-node compiled/tests/', (error, stdout, stderr) ->
     console.log(stdout)
   )
 )
