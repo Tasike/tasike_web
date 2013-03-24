@@ -47,7 +47,7 @@ task('link', '生成public和views软连接', ->
 
 
 task('compile', '编译Coffee为JavaScript', ->
-  spawn('jitter', ['.', 'compiled'])
+  spawn('jitter', ['.', 'build'])
 )
 
 
