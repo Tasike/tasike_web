@@ -1,8 +1,5 @@
+# JavaScript
+*.js
+
 # Dependencies
 node_modules/
-
-# Compiled
-compiled/
-
-# Deploy
-deploy/
