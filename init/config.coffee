@@ -8,6 +8,8 @@ less = require 'less-middleware'
 ROOT_DIR = "#{__dirname}/.."
 SECRET = "TASIKE"
 
+# Tasike配置
+#
 module.exports = (app) ->
   app.configure ->
     app.set 'version', require("#{ROOT_DIR}/package.json").version

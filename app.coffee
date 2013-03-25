@@ -1,8 +1,10 @@
 express = require 'express'
-config = require './init/config'
-index_routes = require './init/index_routes'
-tasks_routes = require './init/tasks_routes'
 http = require 'http'
+
+config = require './init/config'
+indexRoute = require './init/index_route'
+sessionRoute = require './init/session_route'
+taskRoute = require './init/task_route'
 
 app = express()
 
@@ -10,8 +12,9 @@ app = express()
 config app
 
 # routes
-index_routes app
-tasks_routes app
+indexRoute app
+sessionRoute app
+taskRoute app
 
 # server
 http.createServer(app).listen app.get('port'), ->
