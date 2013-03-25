@@ -9,6 +9,6 @@ SessionController = require('../controllers/session_controller')
 module.exports = (app) ->
   sessionController = new SessionController app
 
-  app.get('/signup', sessionController.signup)
-  app.get('/login', sessionController.login)
-  app.get('/logout', sessionController.requireLogin, sessionController.logout)
+  app.all('/signup', sessionController.signup)
+  app.all('/login', sessionController.login)
+  app.all('/logout', sessionController.requireLogin, sessionController.logout)
