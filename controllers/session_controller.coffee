@@ -12,12 +12,14 @@ class SessionController
   #
   # @param [object] app Tasike实例
   #
-  constructor: (@app) ->
+  constructor: (app) ->
+    @app = app
+    @logger = @app.get('logger')
 
   # 注册新用户
   #
   # @example 注册新用户
-  #   POST /signup
+  #   GET/POST /signup
   #
   signup: (req, res, next) ->
     res.send "signup"
@@ -25,7 +27,7 @@ class SessionController
   # 用户登录
   #
   # @example 用户登录
-  #   POST /login
+  #   GET/POST /login
   #
   login: (req, res, next) ->
     res.send "signin"
@@ -33,7 +35,7 @@ class SessionController
   # 用户退出
   #
   # @example 用户退出
-  #   POST /logout
+  #   GET/POST /logout
   #
   logout: (req, res, next) ->
     res.send "signin"

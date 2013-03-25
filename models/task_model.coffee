@@ -5,9 +5,8 @@
 mongoose = require('mongoose')
 Schema = mongoose.Schema
 
-TaskSchema = new Schema(
+TaskSchema = new Schema
   title: String
-)
 
 # Task模型类
 #

@@ -18,22 +18,23 @@ indexRoute app
 sessionRoute app
 taskRoute app
 
+logger = app.get('logger')
 # handler
 onlineHandler = (worker) ->
-  console.log 'Created worker: ' + worker.process.pid
+  logger.info 'Created worker: ' + worker.process.pid
   worker.lastCb = new Date().getTime() - 1000
   worker.on 'message', (msg) ->
     if msg.cmd is 'reportMem'
       worker.lastCb = new Date().getTime()
       if msg.memory.rss > 500 * 1024 * 1024
-        console.log 'Worker ' + msg.process.pid + ' using ' + msg.memory.rss + " B"
+        logger.error 'Worker ' + msg.process.pid + ' using ' + msg.memory.rss + " B"
   return
 
 exitHandler = (worker, code, signal) ->
   if worker.suicide is true
-    console.log 'Exit succeed'
+    logger.info 'Exit succeed'
   else
-    console.log 'Exit error'
+    logger.error 'Exit error'
     cluster.fork()
   return
 
@@ -46,7 +47,7 @@ checkAliveHandler = ->
   now = new Date().getTime()
   for pid, worker of cluster.workers
     if now - worker.lastCb > 60000
-      console.log 'Long running worker ' + pid + ' dead'
+      logger.error 'Long running worker ' + pid + ' dead'
       worker.disconnect()
   return
 
@@ -59,7 +60,7 @@ reportMemHandler = ->
 
 # server
 if cluster.isMaster
-  console.log 'numCPUs ' + numCPUs
+  logger.info 'numCPUs ' + numCPUs
 
   cluster.on 'online', onlineHandler
   cluster.on 'exit', exitHandler
@@ -71,7 +72,7 @@ if cluster.isMaster
   setInterval checkAliveHandler, 1000
 else
   http.createServer(app).listen app.get('port'), ->
-    console.log "Tasike server listening on port " + app.get 'port'
+    logger.info "Tasike server listening on port " + app.get 'port'
     return
 
   setInterval reportMemHandler, 1000

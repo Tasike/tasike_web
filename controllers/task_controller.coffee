@@ -14,7 +14,9 @@ class TaskController
   #
   # @param [object] app Tasike实例
   #
-  constructor: (@app) ->
+  constructor: (app) ->
+    @app = app
+    @logger = @app.get('logger')
 
   # 获取所有Task
   #
