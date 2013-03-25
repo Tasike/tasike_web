@@ -3,6 +3,6 @@
 # Time: 下午5:21
 
 module.exports = (app) ->
-  TaskController = require('../controllers/tasks').getController app
+  TaskController = require('../controllers/tasks') app
 
   app.get('/tasks', TaskController.tasks)

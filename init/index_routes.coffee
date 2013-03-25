@@ -3,6 +3,6 @@
 # Time: 下午5:21
 
 module.exports = (app) ->
-  IndexController = require('../controllers/index').getController app
+  IndexController = require('../controllers/index') app
 
   app.get('/', IndexController.index)
