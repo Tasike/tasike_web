@@ -13,8 +13,10 @@
     "socket.io": "*",
     "node-celery": "*",
     "redis": "*",
+    "connect-redis": "*",
     "validator": "*",
-    "log4js": "*"
+    "log4js": "*",
+    "underscore": "*"
   },
   "repository": {
      "type": "git",

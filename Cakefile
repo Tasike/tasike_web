@@ -9,5 +9,5 @@ task 'test', '进行单元测试', ->
     console.log stdout
 
 task 'doc', '生成文档', ->
-  exec "codo -o ./docs -n 'Tasike' --title 'Tasike Doc' ./controllers/ ./helpers/ ./init/ ./libs/ ./models/ ./public/javascripts/ ./tests/", (error, stdout, stderr) ->
+  exec "codo -o ./docs -n 'Tasike' --title 'Tasike Doc' ./config/ ./controllers/ ./helpers/ ./init/ ./libs/ ./models/ ./public/javascripts/ ./tests/", (error, stdout, stderr) ->
     console.log stdout

@@ -2,11 +2,11 @@
 # Date: 13-3-25
 # Time: 上午11:45
 
-# Session控制器类
+# Auth控制器类
 #
 # @note 在相应的route文件中将控制器函数绑定路由即可
 #
-class SessionController
+class AuthController
 
   # 构造函数
   #
@@ -43,10 +43,10 @@ class SessionController
   # 用户认证Middleware
   #
   # @example 用户认证Middleware
-  #   app.get('/', requireLogin, SessionController.logout)
+  #   app.get('/', requireLogin, AuthController.logout)
   #
   requireLogin: (req, res, next) ->
     #return res.redirect '/login' unless req.session.loggedIn
     next()
 
-module.exports = SessionController
+module.exports = AuthController

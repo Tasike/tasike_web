@@ -3,19 +3,19 @@ numCPUs = require('os').cpus().length
 express = require 'express'
 http = require 'http'
 
-config = require './init/config'
+appConfig = require './init/app_config'
 indexRoute = require './init/index_route'
-sessionRoute = require './init/session_route'
+authRoute = require './init/auth_route'
 taskRoute = require './init/task_route'
 
 app = express()
 
 # config
-config app
+appConfig app
 
 # routes
 indexRoute app
-sessionRoute app
+authRoute app
 taskRoute app
 
 logger = app.get('logger')
@@ -60,6 +60,7 @@ reportMemHandler = ->
 
 # server
 if cluster.isMaster
+  logger.info 'Run Mode: ' + process.env.NODE_ENV
   logger.info 'numCPUs ' + numCPUs
 
   cluster.on 'online', onlineHandler
