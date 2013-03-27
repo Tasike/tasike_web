@@ -7,6 +7,7 @@ express = require 'express'
 mongoose = require 'mongoose'
 less = require 'less-middleware'
 log4js = require 'log4js'
+redis = require 'redis'
 RedisSessionStore = require('connect-redis')(express)
 
 # Tasike配置
@@ -63,6 +64,13 @@ module.exports = (app) ->
           logger.error error
           process.exit()
 
+      # 连接Redis
+      #
+      client = redis.createClient config.redis.port, config.redis.host
+      client.on "error", (error) ->
+        logger.error error
+      app.set 'redis', client
+
   # 配置生产环境
   #
   app.configure 'production', ->
@@ -102,5 +110,12 @@ module.exports = (app) ->
         if error
           logger.error error
           process.exit()
+
+      # 连接Redis
+      #
+      client = redis.createClient config.redis.port, config.redis.host
+      client.on "error", (error) ->
+        logger.error error
+      app.set 'redis', client
 
 

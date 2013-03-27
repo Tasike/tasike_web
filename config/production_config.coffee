@@ -21,7 +21,8 @@ productionConfig =
   redis:
     host: "127.0.0.1"
     port: "6379"
-    db: "0"
+    db: "1"
+    no_ready_check: true
     ttl: 60 * 60 * 24 * 8
   mongodb:
     # "mongodb://#{user}:#{pass}@#{host}:#{port}/#{db}"
