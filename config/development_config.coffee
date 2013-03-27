@@ -19,6 +19,11 @@ developmentConfig =
     port: "6379"
     db: "0"
     ttl: 60 * 60 * 24 * 8
+  mongodb:
+    # "mongodb://#{user}:#{pass}@#{host}:#{port}/#{db}"
+    #
+    uri: "mongodb://127.0.0.1:27017/tasike"
+
 
 _ = require "underscore"
 
