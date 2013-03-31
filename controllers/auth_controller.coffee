@@ -12,7 +12,7 @@ class AuthController
   #
   # @param [object] app Tasike实例
   #
-  constructor: (app) ->
+  constructor: (app) =>
     @app = app
     @logger = @app.get('logger')
 
@@ -21,7 +21,7 @@ class AuthController
   # @example 注册新用户
   #   GET/POST /signup
   #
-  signup: (req, res, next) ->
+  signup: (req, res, next) =>
     res.send "signup"
 
   # 用户登录
@@ -29,7 +29,7 @@ class AuthController
   # @example 用户登录
   #   GET/POST /login
   #
-  login: (req, res, next) ->
+  login: (req, res, next) =>
     res.send "signin"
 
   # 用户退出
@@ -37,7 +37,7 @@ class AuthController
   # @example 用户退出
   #   GET/POST /logout
   #
-  logout: (req, res, next) ->
+  logout: (req, res, next) =>
     res.send "signin"
 
   # 用户认证Middleware
@@ -45,7 +45,7 @@ class AuthController
   # @example 用户认证Middleware
   #   app.get('/', requireLogin, AuthController.logout)
   #
-  requireLogin: (req, res, next) ->
+  requireLogin: (req, res, next) =>
     #return res.redirect '/login' unless req.session.loggedIn
     next()
 

@@ -9,6 +9,6 @@ AuthController = require('../controllers/Auth_controller')
 module.exports = (app) ->
   authController = new AuthController app
 
-  app.all('/signup', authController.signup)
-  app.all('/login', authController.login)
-  app.all('/logout', authController.requireLogin, authController.logout)
+  app.all '/signup', authController.signup
+  app.all '/login', authController.login
+  app.all '/logout', authController.requireLogin, authController.logout

@@ -9,4 +9,4 @@ TaskController = require('../controllers/task_controller')
 module.exports = (app) ->
   taskController = new TaskController app
 
-  app.get('/tasks', taskController.tasks)
+  app.get '/tasks', taskController.tasks

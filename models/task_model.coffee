@@ -6,7 +6,21 @@ mongoose = require('mongoose')
 Schema = mongoose.Schema
 
 TaskSchema = new Schema
-  title: String
+  name:
+    type: String
+    required: true
+  url:
+    type: String
+    required: true
+  shortURL:
+    type: String
+  startDate:
+    type: Date
+  endDate:
+    type: Date
+  desc:
+    type: String
+
 
 # Task模型类
 #
@@ -14,7 +28,12 @@ TaskSchema = new Schema
 #
 # @extend mongoose.model("Task", TaskSchema)
 #
-# @property [String] title Task标题
+# @property [String] name 任务标题
+# @property [String] url 任务唯一的URL
+# @property [String] shortURL 任务唯一的短URL，需要时再生成
+# @property [Date] startDate 任务开始时间
+# @property [Date] endDate 任务到期时间
+# @property [String] desc 任务描述
 #
 class TaskModel extends mongoose.model("Task", TaskSchema)
 

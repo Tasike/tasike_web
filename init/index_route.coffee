@@ -9,4 +9,4 @@ IndexController = require('../controllers/index_controller')
 module.exports = (app) ->
   indexController = new IndexController app
 
-  app.get('/', indexController.index)
+  app.get '/', indexController.index
