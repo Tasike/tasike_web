@@ -23,9 +23,17 @@ task 'mongo', '启动MongoDB', ->
     else
       console.log "MongoDB已启动..."
 
+task 'stopm', '停止MongoDB', ->
+  exec 'killall -9 mongod', (error, stdout, stderr) ->
+    console.log "MongoDB已停止..."
+
 task 'redis', '启动Redis', ->
   exec 'redis-server ~/.redis/redis.conf', (error, stdout, stderr) ->
     console.log "Redis已启动..."
+
+task 'stopr', '停止Redis', ->
+  exec 'killall -9 redis', (error, stdout, stderr) ->
+    console.log "Redis已停止..."
 
 task 'dev', '启动开发环境，先启动DB，在进行Compile监控', (error, stdout, stderr) ->
   exec 'mongod --config ~/.mongodb/mongodb.conf', (error, stdout, stderr) ->
