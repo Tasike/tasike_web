@@ -27,7 +27,7 @@ task 'redis', '启动Redis', ->
   exec 'redis-server ~/.redis/redis.conf', (error, stdout, stderr) ->
     console.log "Redis已启动..."
 
-task 'dev', '启动开发环境，先域名DB，在进行Compile监控', (error, stdout, stderr) ->
+task 'dev', '启动开发环境，先启动DB，在进行Compile监控', (error, stdout, stderr) ->
   exec 'mongod --config ~/.mongodb/mongodb.conf', (error, stdout, stderr) ->
     if stdout.indexOf("ERROR") isnt -1
       console.log stdout

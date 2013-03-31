@@ -2,19 +2,13 @@
 # Date: 13-3-25
 # Time: 上午11:45
 
+ApplicationController = require './application_controller'
+
 # Auth控制器类
 #
 # @note 在相应的route文件中将控制器函数绑定路由即可
 #
-class AuthController
-
-  # 构造函数
-  #
-  # @param [object] app Tasike实例
-  #
-  constructor: (app) =>
-    @app = app
-    @logger = @app.get('logger')
+class AuthController extends ApplicationController
 
   # 注册新用户
   #
@@ -30,6 +24,7 @@ class AuthController
   #   GET/POST /login
   #
   login: (req, res, next) =>
+    @logger.info 'dasdasdasd'
     res.send "signin"
 
   # 用户退出

@@ -3,15 +3,15 @@ numCPUs = require('os').cpus().length
 express = require 'express'
 http = require 'http'
 
-appConfig = require './init/app_config'
+appInit = require './init/app_init'
 indexRoute = require './init/index_route'
 authRoute = require './init/auth_route'
 taskRoute = require './init/task_route'
 
 app = express()
 
-# config
-appConfig app
+# init
+appInit app
 
 # routes
 indexRoute app
