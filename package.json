@@ -11,7 +11,6 @@
     "less-middleware": "*",
     "mongoose": "*",
     "socket.io": "*",
-    "node-celery": "*",
     "redis": "*",
     "connect-redis": "*",
     "validator": "*",
