@@ -6,20 +6,43 @@ mongoose = require('mongoose')
 Schema = mongoose.Schema
 
 TaskSchema = new Schema
+  closed:
+    type: Boolean
+    'default': false
+  desc:
+    type: String
+  endDate:
+    type: Date
+  idActions:
+    type: Array
+  idChecklists:
+    type: Array
+  idList:
+    type: ObjectId
+    required: true
+  idMembers:
+    type:Array
+  idProject:
+    type: ObjectId
+    required: true
+  lables:
+    type: Array
+  modifiedDate:
+    type: Date
+    required: true
   name:
     type: String
     required: true
-  url:
-    type: String
+  pos:
+    type: Number
     required: true
-  shortURL:
+  shortUrl:
     type: String
   startDate:
     type: Date
-  endDate:
-    type: Date
-  desc:
+  url:
     type: String
+    required: true
 
 
 # Task模型类

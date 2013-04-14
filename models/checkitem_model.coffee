@@ -5,9 +5,10 @@
 mongoose = require('mongoose')
 Schema = mongoose.Schema
 
-ChecklistSchema = new Schema
-  idCheckitems:
-    type: Array
+CheckitemSchema = new Schema
+  idChecklist:
+    type: ObjectId
+    required: true
   idList:
     type: ObjectId
     required: true
@@ -23,24 +24,29 @@ ChecklistSchema = new Schema
   pos:
     type: Number
     required: true
+  state:
+    type: String
+    required: true
+    'default': 'incomplete'
 
 
-# Checklist模型类
+# Checkitem模型类
 #
-# @note Checklist模型类包含对Checklist的所有读取和修改操作
+# @note Checkitem模型类包含对Checkitem的所有读取和修改操作
 #
-# @extend mongoose.model("Checklist", ChecklistSchema)
+# @extend mongoose.model("Checkitem", ChecklistSchema)
 #
-# @property [Array] idCheckitems Checklist包含的Checkitem ID列表
+# @property [ObjectId] idChecklist Checklist ID
 # @property [ObjectId] idList List ID
 # @property [ObjectId] idProject Project ID
 # @property [ObjectId] idTask Task ID
 # @property [String] name 任务标题
 # @property [Number] pos 上下的位置
+# @property [String] state 任务状态，incomplete或complete
 #
-class ChecklistModel extends mongoose.model("Checklist", ChecklistSchema)
+class CheckitemModel extends mongoose.model("Checkitem", CheckitemSchema)
 
 
 module.exports =
-  ChecklistSchema: ChecklistSchema
-  ChecklistModel: ChecklistModel
+  CheckitemSchema: CheckitemSchema
+  CheckitemModel: CheckitemModel
