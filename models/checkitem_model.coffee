@@ -47,6 +47,7 @@ CheckitemSchema = new Schema
 class CheckitemModel extends mongoose.model("Checkitem", CheckitemSchema)
 
 
+
 module.exports =
   CheckitemSchema: CheckitemSchema
   CheckitemModel: CheckitemModel
